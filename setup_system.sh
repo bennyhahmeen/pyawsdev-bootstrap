@@ -34,7 +34,6 @@ apps=(
   textmate
   cyberduck
   totalterminal
-  haskell-platform
 )
 
 
