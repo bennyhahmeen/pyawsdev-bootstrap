@@ -9,6 +9,7 @@ binaries=(
   screen
   macvim
   zsh
+  mackup
 )
 
 # Apps
