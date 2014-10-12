@@ -25,7 +25,6 @@ apps=(
   iterm2
   qlprettypatch
   virtualbox
-  flux
   mailbox
   qlstephen
   vlc
