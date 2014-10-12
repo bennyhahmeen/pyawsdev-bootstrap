@@ -16,7 +16,7 @@ binaries=(
 apps=(
   dropbox
   google-chrome
-  transmit
+  transmission
   appcleaner
   firefox
   qlmarkdown
