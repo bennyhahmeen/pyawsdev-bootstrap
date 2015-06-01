@@ -1,3 +1,5 @@
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 binaries=(
   python
   sshfs
