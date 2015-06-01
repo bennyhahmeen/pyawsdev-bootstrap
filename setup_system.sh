@@ -8,6 +8,7 @@ binaries=(
   screen
   zsh
   mackup
+  pyenv
 )
 
 # Apps
@@ -77,3 +78,10 @@ brew install caskroom/cask/brew-cask
 # Default is: /Users/$user/Applications
 echo "installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
+
+# Install python versions
+eval "$(pyenv init -)"
+pyenv install 2.7.9
+pyenv install 3.4.2
+pyenv rehash
+pyenv global 2.7.9
