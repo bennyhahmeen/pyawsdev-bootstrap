@@ -1,3 +1,7 @@
+export LC_CTYPE=en.US.UTF-8
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:${PATH}"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 binaries=(
