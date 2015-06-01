@@ -56,6 +56,7 @@ apps=(
   league-of-legends
   battle-net
   minecraft
+  steam
 )
 
 
