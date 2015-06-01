@@ -4,10 +4,8 @@ binaries=(
   trash
   git
   mosh
-  irssi
   tmux
   screen
-  macvim
   zsh
   mackup
 )
@@ -15,25 +13,40 @@ binaries=(
 # Apps
 apps=(
   dropbox
+  google-drive
   google-chrome
-  transmission
-  appcleaner
   firefox
-  qlmarkdown
-  spotify
-  flash
-  iterm2
-  qlprettypatch
-  virtualbox
   mailbox
-  qlstephen
-  vlc
-  quicklook-json
+  slack
+  telegram
   skype
+  spotify
+  vlc
+  flash
   transmission
-  textmate
-  cyberduck
+  alfred
+  iterm2
   totalterminal
+  appcleaner
+  qlprettypatch
+  qlstephen
+  quicklook-json
+  qlmarkdown
+  rescuetime
+  teamviewer
+  ghc
+  1password
+  cyberduck
+  psequel
+  mamp
+  vmware-fusion
+  monodraw
+  mendeley-desktop
+  textmate
+  atom
+  league-of-legends
+  battle-net
+  minecraft
 )
 
 
