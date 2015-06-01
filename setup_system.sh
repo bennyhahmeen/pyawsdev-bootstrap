@@ -85,3 +85,12 @@ pyenv install 2.7.9
 pyenv install 3.4.2
 pyenv rehash
 pyenv global 2.7.9
+
+sudo easy_install pip
+
+# Disable hold key giving char accent menu
+defaults write -g ApplePressAndHoldEnabled -bool false
+# Disable the dashboard (not necessary after disabled in Mission Control?)
+defaults write com.apple.dashboard mcx-disabled -boolean YES
+# Enable the locate command/database
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
