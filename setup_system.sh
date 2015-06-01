@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export LC_CTYPE=en.US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
