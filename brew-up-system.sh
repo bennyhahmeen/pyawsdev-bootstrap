@@ -8,7 +8,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 binaries=(
   python
-  sshfs
   trash
   git
   mosh
@@ -41,6 +40,7 @@ apps=(
   qlstephen
   quicklook-json
   qlmarkdown
+  perian
   rescuetime
   teamviewer
   ghc
