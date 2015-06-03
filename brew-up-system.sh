@@ -9,6 +9,8 @@ binaries=(
   mackup
   pyenv
   ctags-exuberant
+  wget
+  npm
 )
 
 # Apps
