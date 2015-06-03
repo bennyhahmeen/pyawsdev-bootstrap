@@ -1,15 +1,4 @@
 #!/bin/sh
-
-export LC_CTYPE=en.US.UTF-8
-export LC_ALL=en_US.UTF-8  
-export LANG=en_US.UTF-8
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:${PATH}"
-
-# Make sure xcode command line tools are installed
-xcode-select --install
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 binaries=(
   trash
   git
@@ -66,6 +55,16 @@ apps=(
   #palua
 )
 
+export LC_CTYPE=en.US.UTF-8
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:${PATH}"
+
+# Make sure xcode command line tools are installed
+xcode-select --install
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 
 # Update homebrew recipes
 brew update
@@ -95,6 +94,7 @@ brew install caskroom/cask/brew-cask
 echo "installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
+
 # Install python versions
 eval "$(pyenv init -)"
 pyenv install 2.7.9
@@ -103,18 +103,12 @@ pyenv rehash
 pyenv global 2.7.9
 #sudo easy_install pip
 
+
 # Install macvim
 brew install macvim --override-system-vim --with-python3 --HEAD
 # Install haskell vim 
 curl -o - https://raw.githubusercontent.com/begriffs/haskell-vim-now/master/install.sh | bash
 
-
-# Disable hold key giving char accent menu
-defaults write -g ApplePressAndHoldEnabled -bool false
-# Disable the dashboard (not necessary after disabled in Mission Control?)
-defaults write com.apple.dashboard mcx-disabled -boolean YES
-# Enable the locate command/database
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
 # Setup cabal
 cabal update && cabal install alex happy
