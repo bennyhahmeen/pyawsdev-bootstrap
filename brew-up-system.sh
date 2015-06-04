@@ -97,6 +97,11 @@ echo "installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 
+# Install neovim
+brew tap neovim/neovim
+brew install --HEAD neovim
+
+
 # Install python versions
 eval "$(pyenv init -)"
 pyenv install 2.7.9
