@@ -112,7 +112,7 @@ pyenv global 2.7.9
 
 
 # Install macvim
-brew install macvim --override-system-vim --with-python3 --HEAD
+brew install macvim --override-system-vim --with-lua --with-luajit --with-python3 --HEAD
 # Install haskell vim 
 curl -o - https://raw.githubusercontent.com/begriffs/haskell-vim-now/master/install.sh | bash
 
