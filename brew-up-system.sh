@@ -29,7 +29,6 @@ apps=(
   transmission
   alfred
   iterm2
-  totalterminal
   appcleaner
   qlprettypatch
   qlstephen
@@ -39,7 +38,6 @@ apps=(
   rescuetime
   teamviewer
   ghc
-  1password
   cyberduck
   psequel
   mamp
