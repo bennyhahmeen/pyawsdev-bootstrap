@@ -8,50 +8,42 @@ binaries=(
   zsh
   mackup
   pyenv
+  rbenv
   ctags-exuberant
   wget
   npm
+  tldr
 )
 
 # Apps
 apps=(
   dropbox
-  google-drive
+  google-backup-and-sync
   google-chrome
   firefox
-  mailbox
   slack
-  telegram
   skype
   spotify
   vlc
-  flash
   transmission
   alfred
   iterm2
-  appcleaner
   qlprettypatch
   qlstephen
   quicklook-json
   qlmarkdown
-  perian
-  rescuetime
   teamviewer
-  ghc
   cyberduck
   psequel
   mamp
-  vmware-fusion
   monodraw
   mendeley-desktop
-  textmate
   atom
-  league-of-legends
-  battle-net
-  minecraft
+  visual-studio-code
   steam
+  battle-net
+  #league-of-legends
   #eve-online
-  #sunrise
   #palua
 )
 
@@ -63,57 +55,74 @@ export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:${PAT
 # Make sure xcode command line tools are installed
 xcode-select --install
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo ">>> installing homebrew..."
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
 # Update homebrew recipes
 brew update
 
+echo ">>> installing common cli utils..."
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
-
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
-
 # Install Bash 4
 brew install bash
-
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 
-echo "installing binaries..."
+echo ">>> installing binaries..."
 brew install ${binaries[@]}
 
 brew cleanup
 
-brew install caskroom/cask/brew-cask
-
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-echo "installing apps..."
+echo ">>> installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
-
 # Install neovim
+echo ">>> installing neovim..."
 brew tap neovim/neovim
-brew install --HEAD neovim
+brew install neovim
 
-
+echo ">>> installing pyenv and python versions..."
 # Install python versions
 eval "$(pyenv init -)"
-pyenv install 2.7.9
-pyenv install 3.4.2
+pyenv install 2.7.14
+pyenv install 3.6.2
 pyenv rehash
-pyenv global 2.7.9
-#sudo easy_install pip
+pyenv global 3.6.2
 
+echo ">>> installing stack..."
+# Install stack
+curl -sSL https://get.haskellstack.org/ | sh
+stack setup
 
-# Install macvim
-brew install macvim --override-system-vim --with-lua --with-luajit --with-python3 --HEAD
-# Install haskell vim 
-curl -o - https://raw.githubusercontent.com/begriffs/haskell-vim-now/master/install.sh | bash
+echo ">>> installing spacmacs and emacs-plus..."
+# Install spacemacs
+git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --HEAD --with-natural-title-bars
+brew linkapps emacs-plus 
 
+echo "installing oh-my-zsh..."
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Setup cabal
-cabal update && cabal install alex happy
+brew cleanup
+
+echo "setting up dot files..."
+# Clone down dot files
+mkdir -p ~/GitHub/Tehnix
+cd ~/GitHub/Tehnix
+git clone git@github.com:Tehnix/dot-files.git
+cd dot-files
+# Symlink them into home directory
+ln -s spacemacs ~/.spacemacs
+ln -s zshrc ~/.zshrc
+ln -s gitignore_global ~/.gitignore_global
+ln -s curlrc ~/.curlrc
+ln -s irssi ~/.irssi
