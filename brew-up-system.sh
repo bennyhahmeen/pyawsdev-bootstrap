@@ -84,6 +84,7 @@ echo ">>> installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 # Install hasklig
+echo ">>> installing the hasklig font..."
 brew tap caskroom/fonts
 brew cask install font-hasklig
 
@@ -92,33 +93,33 @@ echo ">>> installing neovim..."
 brew tap neovim/neovim
 brew install neovim
 
-echo ">>> installing pyenv and python versions..."
 # Install python versions
+echo ">>> installing pyenv and python versions..."
 eval "$(pyenv init -)"
 pyenv install 2.7.14
 pyenv install 3.6.2
 pyenv rehash
 pyenv global 3.6.2
 
-echo ">>> installing stack..."
 # Install stack
+echo ">>> installing stack..."
 curl -sSL https://get.haskellstack.org/ | sh
 stack setup
 
-echo ">>> installing spacmacs and emacs-plus..."
 # Install spacemacs
+echo ">>> installing spacmacs and emacs-plus..."
 git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-bars
 brew linkapps emacs-plus 
 
-echo "installing oh-my-zsh..."
 # Install oh-my-zsh
+echo ">>> installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 brew cleanup
 
-echo "setting up dot files..."
+echo ">>> setting up dot files..."
 # Clone down dot files
 mkdir -p ~/GitHub/Tehnix
 cd ~/GitHub/Tehnix
