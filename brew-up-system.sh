@@ -13,6 +13,9 @@ binaries=(
   wget
   npm
   tldr
+  readline
+  xz
+  openssl
 )
 
 # Apps
@@ -92,7 +95,11 @@ brew cask install font-hasklig
 # Install python versions
 echo ">>> installing pyenv and python versions..."
 eval "$(pyenv init -)"
+CFLAGS="-I$(brew --prefix openssl)/include" \
+LDFLAGS="-L$(brew --prefix openssl)/lib" \
 pyenv install 2.7.14
+CFLAGS="-I$(brew --prefix openssl)/include" \
+LDFLAGS="-L$(brew --prefix openssl)/lib" \
 pyenv install 3.6.2
 pyenv rehash
 pyenv global 3.6.2
