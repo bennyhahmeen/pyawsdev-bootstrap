@@ -21,8 +21,8 @@ apps=(
   google-backup-and-sync
   google-chrome
   firefox
-  slack
   skype
+  todoist
   spotify
   vlc
   transmission
@@ -45,6 +45,7 @@ apps=(
   #league-of-legends
   #eve-online
   #palua
+  slack
 )
 
 export LC_CTYPE=en.US.UTF-8
@@ -88,11 +89,6 @@ echo ">>> installing the hasklig font..."
 brew tap caskroom/fonts
 brew cask install font-hasklig
 
-# Install neovim
-echo ">>> installing neovim..."
-brew tap neovim/neovim
-brew install neovim
-
 # Install python versions
 echo ">>> installing pyenv and python versions..."
 eval "$(pyenv init -)"
@@ -100,6 +96,16 @@ pyenv install 2.7.14
 pyenv install 3.6.2
 pyenv rehash
 pyenv global 3.6.2
+
+# Install neovim
+echo ">>> installing neovim..."
+brew tap neovim/neovim
+brew install neovim
+pyenv shell 3.6.2
+pip install neovim
+pyenv shell 2.7.14
+pip install neovim
+pyenv shell 3.6.2
 
 # Install stack
 echo ">>> installing stack..."
@@ -112,10 +118,6 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-bars
 brew linkapps emacs-plus 
-
-# Install oh-my-zsh
-echo ">>> installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 brew cleanup
 
@@ -135,3 +137,8 @@ ln -s irssi ~/.irssi
 
 echo ">>> opening links to apps that had no casks..."
 open https://developer.apple.com/safari/download/
+
+# Install oh-my-zsh 
+# NOTE: Do this last, since it will drop you into a zsh shell!
+echo ">>> installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
