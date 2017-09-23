@@ -16,6 +16,7 @@ binaries=(
   readline
   xz
   openssl
+  idris
 )
 
 # Apps
@@ -104,15 +105,25 @@ pyenv install 3.6.2
 pyenv rehash
 pyenv global 3.6.2
 
+# Setup ruby
+rbenv install 2.4.2
+
+# Install some python packages
+pyenv shell 3.6.2
+pip install neovim
+pip install flake8
+pyenv shell 2.7.14
+pip install neovim
+pip install flake8
+pyenv shell 3.6.2
+
+# Install some NPM packages
+npm install -g jshint jsonlint eslint csslint purescript pulp bower
+ 
 # Install neovim
 echo ">>> installing neovim..."
 brew tap neovim/neovim
 brew install neovim
-pyenv shell 3.6.2
-pip install neovim
-pyenv shell 2.7.14
-pip install neovim
-pyenv shell 3.6.2
 
 # Install stack
 echo ">>> installing stack..."
@@ -134,16 +145,13 @@ mkdir -p ~/GitHub/Tehnix
 cd ~/GitHub/Tehnix
 git clone git@github.com:Tehnix/dot-files.git
 cd dot-files
-# Symlink them into home directory
-ln -s spacemacs ~/.spacemacs
-ln -s zshrc ~/.zshrc
-ln -s gitignore_global ~/.gitignore_global
-ln -s curlrc ~/.curlrc
-ln -s irssi ~/.irssi
 
 
 echo ">>> opening links to apps that had no casks..."
 open https://developer.apple.com/safari/download/
+
+# Install some ruby packages
+sudo gem install rsense mdl
 
 # Install oh-my-zsh 
 # NOTE: Do this last, since it will drop you into a zsh shell!
