@@ -145,6 +145,7 @@ mkdir -p ~/GitHub/Tehnix
 cd ~/GitHub/Tehnix
 git clone git@github.com:Tehnix/dot-files.git
 cd dot-files
+./link.sh
 
 
 echo ">>> opening links to apps that had no casks..."
