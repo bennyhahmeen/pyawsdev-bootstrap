@@ -45,7 +45,6 @@ apps=(
   #league-of-legends
   #eve-online
   #palua
-  slack
 )
 
 export LC_CTYPE=en.US.UTF-8
