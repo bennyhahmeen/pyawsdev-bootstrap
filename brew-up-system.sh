@@ -44,6 +44,7 @@ apps=(
   mendeley-desktop
   atom
   visual-studio-code
+  oni
   steam
   battle-net
   #league-of-legends
