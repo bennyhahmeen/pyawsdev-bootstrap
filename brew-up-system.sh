@@ -83,6 +83,10 @@ brew cleanup
 echo ">>> installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
+# Install hasklig
+brew tap caskroom/fonts
+brew cask install font-hasklig
+
 # Install neovim
 echo ">>> installing neovim..."
 brew tap neovim/neovim
