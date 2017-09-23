@@ -131,3 +131,7 @@ ln -s zshrc ~/.zshrc
 ln -s gitignore_global ~/.gitignore_global
 ln -s curlrc ~/.curlrc
 ln -s irssi ~/.irssi
+
+
+echo ">>> opening links to apps that had no casks..."
+open https://developer.apple.com/safari/download/
