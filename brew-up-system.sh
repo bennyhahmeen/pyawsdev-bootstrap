@@ -55,7 +55,7 @@ apps=(
 export LC_CTYPE=en.US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:${PATH}"
+export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
 # Make sure xcode command line tools are installed
 xcode-select --install
@@ -83,10 +83,12 @@ brew install ${binaries[@]}
 
 brew cleanup
 
-# Install apps to /Applications
-# Default is: /Users/$user/Applications
+# Install apps via homebrew cask (we loop, because some might fail)
 echo ">>> installing apps..."
-brew cask install ${apps[@]}
+for app in "${apps[@]}"
+do
+   brew cask install $app
+done
 
 # Install hasklig
 echo ">>> installing the hasklig font..."
@@ -151,7 +153,26 @@ cd dot-files
 echo ">>> opening links to apps that had no casks..."
 open https://developer.apple.com/safari/download/
 
-# Install some ruby packages
+# Install some haskell packages
+stack install ghc-mod
+stack install hlint
+stack install ghcid
+stack install hasktags
+stack install hoogle
+stack install pointfree 
+stack install pointful 
+stack install cabal-install
+stack install hindent
+stack install stylish-haskell
+stack install brittany
+
+# Build local hoogle database
+stack hoogle
+
+# Install spaceneovim (will require exiting nvim
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/tehnix/spaceneovim/master/install.sh)"
+
+# Install some ruby packages (requires sudo, so will need interaction)
 sudo gem install rsense mdl
 
 # Install oh-my-zsh 
