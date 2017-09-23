@@ -118,7 +118,7 @@ pip install flake8
 pyenv shell 3.6.2
 
 # Install some NPM packages
-npm install -g jshint jsonlint eslint csslint purescript pulp bower
+npm install -g jshint jsonlint eslint csslint ternjs purescript pulp bower
  
 # Install neovim
 echo ">>> installing neovim..."
