@@ -46,6 +46,7 @@ apps=(
   #eve-online
   #palua
 )
+# KakaoTalk, Slack and others are installed through the App Store.
 
 export LC_CTYPE=en.US.UTF-8
 export LC_ALL=en_US.UTF-8  
