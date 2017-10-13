@@ -43,6 +43,7 @@ apps=(
   monodraw
   mendeley-desktop
   atom
+  atom-beta
   visual-studio-code
   oni
   steam
