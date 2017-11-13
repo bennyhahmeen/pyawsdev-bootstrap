@@ -17,40 +17,48 @@ binaries=(
   xz
   openssl
   idris
+  mypy
+  icu4c
+  pandoc
+  llvm
 )
 
 # Apps
 apps=(
+  alfred
+  atom
+  atom-beta
+  basictex
+  battle-net
+  bettertouchtool
+  cyberduck
+  discord
   dropbox
+  font-hasklig
   google-backup-and-sync
   google-chrome
-  firefox
-  skype
-  todoist
-  spotify
-  vlc
-  transmission
-  alfred
   iterm2
+  keybase
+  mamp
+  mendeley-desktop
+  monodraw
+  nix
+  oni
+  psequel
+  qlmarkdown
   qlprettypatch
   qlstephen
   quicklook-json
-  qlmarkdown
-  teamviewer
-  cyberduck
-  psequel
-  mamp
-  monodraw
-  mendeley-desktop
-  atom
-  atom-beta
-  visual-studio-code
-  oni
+  skype
+  spotify
   steam
-  battle-net
-  #league-of-legends
-  #eve-online
-  #palua
+  teamviewer
+  transmission
+  twitch
+  typora
+  vimr
+  visual-studio-code
+  vlc
 )
 # KakaoTalk, Slack and others are installed through the App Store.
 
@@ -167,6 +175,8 @@ stack install cabal-install
 stack install hindent
 stack install stylish-haskell
 stack install brittany
+stack install hpack
+stack install hpack-convert
 
 # Build local hoogle database
 stack hoogle
