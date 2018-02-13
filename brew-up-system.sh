@@ -21,6 +21,7 @@ binaries=(
   icu4c
   pandoc
   llvm
+  wemux
 )
 
 # Apps
@@ -115,7 +116,7 @@ CFLAGS="-I$(brew --prefix openssl)/include" \
 LDFLAGS="-L$(brew --prefix openssl)/lib" \
 pyenv install 3.6.2
 pyenv rehash
-pyenv global 3.6.2
+pyenv global 2.7.14 3.6.2
 
 # Setup ruby
 rbenv install 2.4.2
@@ -127,7 +128,7 @@ pip install flake8
 pyenv shell 2.7.14
 pip install neovim
 pip install flake8
-pyenv shell 3.6.2
+pyenv shell 2.7.14 3.6.2
 
 # Install some NPM packages
 npm install -g jshint jsonlint eslint csslint ternjs purescript pulp bower
@@ -176,7 +177,7 @@ stack install hindent
 stack install stylish-haskell
 stack install brittany
 stack install hpack
-stack install hpack-convert
+#stack install hpack-convert
 
 # Build local hoogle database
 stack hoogle
