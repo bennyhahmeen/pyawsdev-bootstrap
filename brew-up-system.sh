@@ -22,6 +22,7 @@ binaries=(
   pandoc
   llvm
   wemux
+  go
 )
 
 # Apps
@@ -92,6 +93,10 @@ brew install homebrew/dupes/grep
 echo ">>> installing binaries..."
 brew install ${binaries[@]}
 
+# Install scalafmt
+brew install --HEAD olafurpg/scalafmt/scalafmt
+scalafmt --version
+
 brew cleanup
 
 # Install apps via homebrew cask (we loop, because some might fail)
@@ -122,20 +127,24 @@ pyenv global 2.7.14 3.6.2
 rbenv install 2.4.2
 
 # Install some python packages
-pyenv shell 3.6.2
-pip install neovim
-pip install flake8
-pyenv shell 2.7.14
-pip install neovim
-pip install flake8
+pyenv rehash
 pyenv shell 2.7.14 3.6.2
+pyenv global 2.7.14 3.6.2
+pip install neovim
+pip install flake8
+pip3 install neovim
+pip3 install flake8
 
 # Install some NPM packages
-npm install -g jshint jsonlint eslint csslint ternjs purescript pulp bower
+npm install -g jshint jsonlint eslint csslint ternjs bower
+npm install -g psvm psc-package pulp
+
+# Install the Puresript compiler.
+psvm install v0.11.7 
+psvm use v0.11.7
  
 # Install neovim
 echo ">>> installing neovim..."
-brew tap neovim/neovim
 brew install neovim
 
 # Install stack
@@ -182,7 +191,24 @@ stack install hpack
 # Build local hoogle database
 stack hoogle
 
-# Install spaceneovim (will require exiting nvim
+# Install rustup.
+curl https://sh.rustup.rs -sSf | sh
+# Install the Rust Language Server (RLS).
+rustup update
+rustup component add rls-preview rust-analysis rust-src
+
+# Install the Go LSP.
+go get -u github.com/sourcegraph/go-langserver
+
+# Install the Python LSP.
+pip install python-language-server
+pip3 install python-language-server
+
+# Get composer and install the PHP LSP.
+brew install homebrew/php/composer
+composer require felixfbecker/language-server
+
+# Install spaceneovim (will require exiting nvim)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/tehnix/spaceneovim/master/install.sh)"
 
 # Install some ruby packages (requires sudo, so will need interaction)
