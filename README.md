@@ -4,3 +4,6 @@
 This is intended to be used in conjunction with the 
 [pyawsdev](https://github.com/bennyhahmeen/pyawsdev) 
 [docker image](https://hub.docker.com/r/bennyhahmeen/pyawsdev/).
+
+### Setup
+Setup instructions are in the platform subdirectories.
