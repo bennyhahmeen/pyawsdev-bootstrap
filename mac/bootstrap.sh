@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # coding: utf-8
 
 PYTHONVERSION="3.6.5"
