@@ -12,11 +12,12 @@ binaries=(
   awscli
   git
   pyenv
-  docker
 )
 
 # Apps
-apps=()
+apps=(
+  docker
+)
 
 
 export LC_CTYPE=en_US.UTF-8
