@@ -1,7 +1,7 @@
 #!/bin/sh
 # coding: utf-8
 
-PYVERSION="3.6.5"
+PYTHONVERSION="3.6.5"
 
 binaries=(
   coreutils
@@ -16,8 +16,7 @@ binaries=(
 )
 
 # Apps
-apps=(
-)
+apps=()
 
 export LC_CTYPE=en.US.UTF-8
 export LC_ALL=en_US.UTF-8  
@@ -45,6 +44,8 @@ do
    brew cask install $app
 done
 
+brew cleanup
+
 
 # Install python versions
 echo ">>> installing pyenv and python versions..."
@@ -55,4 +56,9 @@ pyenv install $PYTHONVERSION
 pyenv rehash
 pyenv global $PYTHONVERSION
 
-brew cleanup
+echo ">>> updating and installing python modules..."
+python -m pip install --upgrade setuptools pip wheel pipenv
+
+echo ">>> setting up bash..."
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+echo 'export PIPENV_VENV_IN_PROJECT=true' >> ~/.bash_profile
