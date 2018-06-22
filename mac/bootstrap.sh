@@ -35,6 +35,7 @@ if [ ! -x `which brew` ]; then
 fi 
 
 # Update homebrew recipes
+brew tap homebrew/cask
 brew update
 
 
